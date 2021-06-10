@@ -21,6 +21,11 @@ const Auth = () => {
       console.log(error);
     }
   };
+
+  const onGoogleLoginClick = (event) => {
+    const googleProvider = new authService.GoogleAuthProvider();
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -41,7 +46,7 @@ const Auth = () => {
         <input type="submit" value="로그인" />
       </form>
       <button>페이스북 로그인</button>
-      <button>구글 로그인</button>
+      <button onClick={onGoogleLoginClick}>구글 로그인</button>
     </div>
   );
 };

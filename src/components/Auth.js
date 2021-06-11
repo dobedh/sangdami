@@ -26,6 +26,10 @@ const Auth = () => {
     const googleProvider = new authService.GoogleAuthProvider();
   };
 
+  const onFacebookLoginClick = (event) => {
+    const googleProvider = new authService.FacebookAuthProvider();
+  };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -45,7 +49,7 @@ const Auth = () => {
         />
         <input type="submit" value="로그인" />
       </form>
-      <button>페이스북 로그인</button>
+      <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
       <button onClick={onGoogleLoginClick}>구글 로그인</button>
     </div>
   );

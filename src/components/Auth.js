@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { authService } from "../fbase";
 
 const Auth = () => {
@@ -16,7 +17,7 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await authService.createUserWithEmailAndPassword(email, password);
+      await authService.signInWithEmailAndPassword(email, password);
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +52,7 @@ const Auth = () => {
       </form>
       <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
       <button onClick={onGoogleLoginClick}>구글 로그인</button>
+      <Link to="/signup">회원가입</Link>
     </div>
   );
 };

@@ -9,7 +9,10 @@ const Navigation = () => {
           <Link to="/">홈</Link>
         </li>
         <li>
-          <Link to="/profile">프로필</Link>
+          <Link to="/Login">로그인</Link>
+        </li>
+        <li>
+          <Link to="/Signup">회원가입</Link>
         </li>
       </ul>
     </nav>

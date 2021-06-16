@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Router, Route } from "react-router-dom";
 import { firebaseInstance, authService, db } from "../fbase";
 import Home from "../routes/Home";
+import Login from "../routes/Login";
+import Navigation from "./Navigation";
 import AppRouter from "./Router";
 
 function App() {

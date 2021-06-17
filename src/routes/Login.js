@@ -1,7 +1,8 @@
 import React from "react";
+import AuthLogin from "../components/AuthLogin";
 
 const Login = () => {
-  return <p>로그인 페이지</p>;
+  return <AuthLogin />;
 };
 
 export default Login;

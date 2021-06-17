@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Auth from "./Auth";
 import Home from "../routes/Home";
 import Signup from "../routes/Signup";
 import Login from "../routes/Login";
@@ -26,3 +25,4 @@ const AppRouter = ({ userObj, isLoggedIn }) => {
 };
 
 export default AppRouter;
+

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Auth from "../components/Auth";
 import { authService } from "../fbase";
 
 const Home = () => {

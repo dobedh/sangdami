@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { authService } from "../fbase";
 
-const Auth = () => {
+const AuthSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +17,7 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await authService.signInWithEmailAndPassword(email, password);
+      await authService.createUserWithEmailAndPassword(email, password);
     } catch (error) {
       console.log(error);
     }
@@ -48,13 +48,19 @@ const Auth = () => {
           onChange={onChange}
           value={password}
         />
-        <input type="submit" value="로그인" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={onChange}
+          value={password}
+        />
+        <input type="submit" value="회원가입" />
       </form>
-      <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
-      <button onClick={onGoogleLoginClick}>구글 로그인</button>
-      <Link to="/signup">회원가입</Link>
+      <button onClick={onFacebookLoginClick}>페이스북으로 시작하기</button>
+      <button onClick={onGoogleLoginClick}>구글로 시작하기</button>
     </div>
   );
 };
 
-export default Auth;
+export default AuthSignup;

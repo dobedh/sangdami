@@ -8,21 +8,26 @@ import Navigation from "./Navigation";
 const AppRouter = ({ userObj, isLoggedIn }) => {
   return (
     <Router>
-      <Navigation />
+      <Navigation isLoggedIn={isLoggedIn} />
       <Switch>
         <Route exact path="/">
           <Home userObj={userObj} />
         </Route>
-        <Route exact path="/Login">
-          <Login />
-        </Route>
-        <Route exact path="/Signup">
-          <Signup />
-        </Route>
+        {isLoggedIn ? (
+          <p> hello</p>
+        ) : (
+          <>
+            <Route exact path="/Login">
+              <Login />
+            </Route>
+            <Route exact path="/Signup">
+              <Signup />
+            </Route>
+          </>
+        )}
       </Switch>
     </Router>
   );
 };
 
 export default AppRouter;
-

@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Router, Route } from "react-router-dom";
-import { firebaseInstance, authService, db } from "../fbase";
-import Home from "../routes/Home";
-import Login from "../routes/Login";
-import Navigation from "./Navigation";
+import { authService } from "../fbase";
 import AppRouter from "./Router";
 
 function App() {
+  const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setUserObj(user);
       }
+      setInit(true);
     });
   }, []);
   return (
-    <div className="App">
-      <h3> 상다미 :) </h3>
-      <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
-    </div>
+    <>
+      {init ? (
+        <>
+          <h3>상다미 :)</h3>
+          <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
+        </>
+      ) : (
+        "is logging..."
+      )}
+    </>
   );
 }
 

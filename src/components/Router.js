@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../routes/Home";
+import Profile from "../routes/Profile";
 import Signup from "../routes/Signup";
 import Login from "../routes/Login";
 import Navigation from "./Navigation";
 
 const AppRouter = ({ userObj, isLoggedIn }) => {
+  console.log(isLoggedIn);
   return (
     <Router>
       <Navigation isLoggedIn={isLoggedIn} />
       <Switch>
-        <Route exact path="/">
-          <Home userObj={userObj} />
-        </Route>
         {isLoggedIn ? (
-          <p> hello</p>
+          <>
+            <Route exact path="/">
+              <Home userObj={userObj} />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
+          </>
         ) : (
           <>
-            <Route exact path="/Login">
+            <Route exact path="/">
+              <Home userObj={userObj} />
+            </Route>
+            <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path="/Signup">
+            <Route exact path="/signup">
               <Signup />
             </Route>
           </>

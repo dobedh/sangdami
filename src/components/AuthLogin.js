@@ -5,6 +5,7 @@ import { authService } from "../fbase";
 const AuthLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -20,6 +21,7 @@ const AuthLogin = () => {
       await authService.signInWithEmailAndPassword(email, password);
     } catch (error) {
       console.log(error);
+      setErrorMessage(error.message);
     }
   };
 
@@ -52,6 +54,7 @@ const AuthLogin = () => {
       </form>
       <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
       <button onClick={onGoogleLoginClick}>구글 로그인</button>
+      {errorMessage ? <div>{errorMessage} </div> : <div></div>}
     </div>
   );
 };

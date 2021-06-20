@@ -5,12 +5,16 @@ import Profile from "../routes/Profile";
 import Signup from "../routes/Signup";
 import Login from "../routes/Login";
 import Navigation from "./Navigation";
+import Posts from "../routes/Posts";
 
 const AppRouter = ({ userObj, isLoggedIn }) => {
   console.log(isLoggedIn);
   return (
     <Router>
       <Navigation isLoggedIn={isLoggedIn} />
+      <Route excat path="/post">
+        <Posts />
+      </Route>
       <Switch>
         {isLoggedIn ? (
           <>
@@ -18,7 +22,7 @@ const AppRouter = ({ userObj, isLoggedIn }) => {
               <Home userObj={userObj} />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile userObj={userObj} />
             </Route>
           </>
         ) : (

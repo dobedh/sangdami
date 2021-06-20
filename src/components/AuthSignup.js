@@ -5,6 +5,8 @@ import { authService } from "../fbase";
 const AuthSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [errorMsg, setErorrMsag] = useState(null);
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -12,14 +14,21 @@ const AuthSignup = () => {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
+    } else if (name === "password2") {
+      setPassword2(value);
     }
   };
   const onSubmit = async (event) => {
     event.preventDefault();
-    try {
-      await authService.createUserWithEmailAndPassword(email, password);
-    } catch (error) {
-      console.log(error);
+    if (password === password2) {
+      try {
+        await authService.createUserWithEmailAndPassword(email, password);
+      } catch (error) {
+        setErorrMsag(error.message);
+        console.log(error);
+      }
+    } else {
+      setErorrMsag("패스워드가 일치하지 않습니다!");
     }
   };
 
@@ -50,15 +59,16 @@ const AuthSignup = () => {
         />
         <input
           type="password"
-          name="password"
-          placeholder="Password"
+          name="password2"
+          placeholder="Type Password Again"
           onChange={onChange}
-          value={password}
+          value={password2}
         />
         <input type="submit" value="회원가입" />
       </form>
       <button onClick={onFacebookLoginClick}>페이스북으로 시작하기</button>
       <button onClick={onGoogleLoginClick}>구글로 시작하기</button>
+      {errorMsg ? <div>{errorMsg}</div> : <></>}
     </div>
   );
 };

@@ -1,16 +1,9 @@
-import { render } from "@testing-library/react";
-import React, { useState } from "react";
-import { useHistory } from "react-router";
+import React from "react";
 
 const Home = () => {
-  const history = useHistory();
-  const onWriteClick = () => {
-    history.push("/post");
-  };
   return (
     <div>
       <h4> 안녕! </h4>
-      <button onClick={onWriteClick}>글쓰기</button>
     </div>
   );
 };

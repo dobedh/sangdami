@@ -8,6 +8,9 @@ const Navigation = ({ isLoggedIn }) => {
         <li>
           <Link to="/">홈</Link>
         </li>
+        <li>
+          <Link to="/community">자유게시판</Link>
+        </li>
         {isLoggedIn ? (
           <li>
             <Link to="/profile">프로필</Link>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { authService } from "../fbase";
 
 const AuthSignup = () => {
@@ -7,6 +7,7 @@ const AuthSignup = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [errorMsg, setErorrMsag] = useState(null);
+  const history = useHistory();
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -23,6 +24,7 @@ const AuthSignup = () => {
     if (password === password2) {
       try {
         await authService.createUserWithEmailAndPassword(email, password);
+        history.push("/nickname");
       } catch (error) {
         setErorrMsag(error.message);
         console.log(error);

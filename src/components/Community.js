@@ -22,7 +22,7 @@ const Community = () => {
       <div>Community!</div>
       {posts.map((post) => (
         <div key={post.id}>
-          <h4>{post.text}</h4>
+          <h4>{post.title}</h4>
         </div>
       ))}
       <button onClick={onWriteClick}>글쓰기</button>

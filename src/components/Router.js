@@ -7,6 +7,7 @@ import Login from "../routes/Login";
 import Navigation from "./Navigation";
 import Posts from "../routes/Posts";
 import Community from "./Community";
+import Nickname from "../routes/Nickname";
 
 const AppRouter = ({ userObj, isLoggedIn }) => {
   console.log(isLoggedIn);
@@ -27,6 +28,9 @@ const AppRouter = ({ userObj, isLoggedIn }) => {
             </Route>
             <Route exact path="/profile">
               <Profile userObj={userObj} />
+            </Route>
+            <Route exact path="/nickname">
+              <Nickname userObj={userObj} />
             </Route>
           </>
         ) : (

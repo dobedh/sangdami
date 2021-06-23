@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { db } from "../fbase";
 
 const Posts = ({ userObj }) => {
+  const [postTitle, setPostTitle] = useState("");
   const [newPost, setNewPost] = useState("");
   const [newPosts, setNewPosts] = useState([]);
   const [attachment, setAttachment] = useState(null);
@@ -11,6 +12,7 @@ const Posts = ({ userObj }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const postObj = {
+      title: postTitle,
       text: newPost,
       createdAt: Date.now(),
       creatorId: userObj.uid,
@@ -26,10 +28,19 @@ const Posts = ({ userObj }) => {
     } = event;
     setNewPost(value);
   };
+  const onChangeTitle = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPostTitle(value);
+  };
 
   return (
     <div>
       <form onSubmit={onSubmit}>
+        <div>
+          <input placeholder="제목" onChange={onChangeTitle} required></input>
+        </div>
         <div>
           <textarea
             placeholder="상다미의 이야기"

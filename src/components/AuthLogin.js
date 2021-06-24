@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { authService } from "../fbase";
 
 const AuthLogin = () => {
@@ -27,10 +26,12 @@ const AuthLogin = () => {
 
   const onGoogleLoginClick = (event) => {
     const googleProvider = new authService.GoogleAuthProvider();
+    console.log(googleProvider);
   };
 
   const onFacebookLoginClick = (event) => {
     const googleProvider = new authService.FacebookAuthProvider();
+    console.log(googleProvider);
   };
 
   return (

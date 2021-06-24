@@ -12,6 +12,7 @@ const Profile = ({ userObj }) => {
   return (
     <>
       <div>{userObj.email}</div>
+      <div>{userObj.displayName}</div>
       <button onClick={onLogOutClick}>로그아웃</button>
     </>
   );

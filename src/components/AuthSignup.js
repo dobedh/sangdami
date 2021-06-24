@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { authService } from "../fbase";
 
 const AuthSignup = () => {
@@ -36,10 +36,12 @@ const AuthSignup = () => {
 
   const onGoogleLoginClick = (event) => {
     const googleProvider = new authService.GoogleAuthProvider();
+    console.log(googleProvider);
   };
 
   const onFacebookLoginClick = (event) => {
     const googleProvider = new authService.FacebookAuthProvider();
+    console.log(googleProvider);
   };
 
   return (

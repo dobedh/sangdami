@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () => {
+const Home = ({ userObj }) => {
   return (
     <div>
       <h4> 안녕! </h4>

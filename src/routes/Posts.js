@@ -9,13 +9,22 @@ const Posts = ({ userObj }) => {
   const [attachment, setAttachment] = useState(null);
   const history = useHistory();
 
+  const getToday = () => {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    return year + "-" + month + "-" + day;
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const postObj = {
       title: postTitle,
       text: newPost,
-      createdAt: Date.now(),
+      createdAt: getToday(),
       creatorId: userObj.uid,
+      creatorNickname: userObj.displayName,
     };
     await db.collection("posts").add(postObj);
     setNewPost("");

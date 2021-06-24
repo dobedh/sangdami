@@ -4,6 +4,8 @@ import { useHistory } from "react-router";
 
 const Community = () => {
   const [posts, setPosts] = useState([]);
+  const [createdDate, setCreatedDate] = useState(null);
+
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
       const postArray = snapshot.docs.map((doc) => ({
@@ -23,6 +25,8 @@ const Community = () => {
       {posts.map((post) => (
         <div key={post.id}>
           <h4>{post.title}</h4>
+          <h6>{post.createdAt}</h6>
+          <h6>{post.creatorNickname}</h6>
         </div>
       ))}
       <button onClick={onWriteClick}>글쓰기</button>

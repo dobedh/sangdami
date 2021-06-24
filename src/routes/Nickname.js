@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { db } from "../fbase";
 
 const Nickname = ({ userObj }) => {
   const [nickname, setNickname] = useState("");

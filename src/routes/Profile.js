@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { authService } from "../fbase";
 
 const Profile = ({ userObj }) => {
-  console.log(userObj);
   const history = useHistory();
   const onLogOutClick = () => {
     authService.signOut();

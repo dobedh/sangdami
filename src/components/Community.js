@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../fbase";
 import { useHistory } from "react-router";
 
-const Community = () => {
+const Community = ({ userObj }) => {
   const [posts, setPosts] = useState([]);
   const [createdDate, setCreatedDate] = useState(null);
 
@@ -24,7 +25,20 @@ const Community = () => {
       <div>Community!</div>
       {posts.map((post) => (
         <div key={post.id}>
-          <h4>{post.title}</h4>
+          <Link
+            to={{
+              pathname: `/community/${post.postId}`,
+              state: {
+                title: post.title,
+                dates: post.createdAt,
+                text: post.text,
+                nickname: post.creatorNickname,
+                userObj,
+              },
+            }}
+          >
+            {post.title}
+          </Link>
           <h6>{post.createdAt}</h6>
           <h6>{post.creatorNickname}</h6>
         </div>

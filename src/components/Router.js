@@ -8,16 +8,17 @@ import Navigation from "./Navigation";
 import Posts from "../routes/Posts";
 import Community from "./Community";
 import Nickname from "../routes/Nickname";
+import Contents from "../routes/Contents";
 
 const AppRouter = ({ userObj, isLoggedIn }) => {
-  console.log(isLoggedIn);
   return (
     <Router>
       <Navigation isLoggedIn={isLoggedIn} />
-      <Route excat path="/community">
+      <Route exact path="/community/:id" component={Contents}></Route>
+      <Route exact path="/community">
         <Community userObj={userObj} />
       </Route>
-      <Route excat path="/post">
+      <Route exact path="/post">
         <Posts userObj={userObj} />
       </Route>
       <Switch>

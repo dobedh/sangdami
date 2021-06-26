@@ -29,11 +29,12 @@ const Community = ({ userObj }) => {
             to={{
               pathname: `/community/${post.postId}`,
               state: {
+                postId: post.id,
                 title: post.title,
                 dates: post.createdAt,
                 text: post.text,
                 nickname: post.creatorNickname,
-                userObj,
+                isOwner: post.creatorId === userObj.uid,
               },
             }}
           >

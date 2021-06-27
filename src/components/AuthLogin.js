@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { authService } from "../fbase";
 
 const AuthLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const history = useHistory();
   const onChange = (event) => {
     const { name, value } = event.target;
     if (name === "email") {
@@ -22,6 +23,7 @@ const AuthLogin = () => {
       console.log(error);
       setErrorMessage(error.message);
     }
+    history.push("/");
   };
 
   const onGoogleLoginClick = (event) => {

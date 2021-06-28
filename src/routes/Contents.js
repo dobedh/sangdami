@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { db } from "../fbase";
 
@@ -6,6 +6,7 @@ const Contents = (props) => {
   const { location } = props;
   const { state } = location;
   const { title, nickname, dates, text, isOwner, postId, postKey } = state;
+  // 위 정보 값이, 새로 고침해도 그대로 쿠키에 남아 있도록 해야함
   const [newTitle, setNewTitle] = useState(title);
   const [newText, setNewText] = useState(text);
   const [editing, setEditing] = useState(false);

@@ -5,6 +5,7 @@ import AppRouter from "./Router";
 function App() {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -19,7 +20,12 @@ function App() {
     <>
       {init ? (
         <>
-          <h3>상다미 :)</h3>
+          <header>
+            <title>헤헿</title>
+          </header>
+          <h3 class="logo">
+            <a href="/">상다미 :) </a>
+          </h3>
           <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
         </>
       ) : (

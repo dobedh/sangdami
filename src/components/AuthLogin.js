@@ -19,11 +19,11 @@ const AuthLogin = () => {
     event.preventDefault();
     try {
       await authService.signInWithEmailAndPassword(email, password);
+      history.push("/");
     } catch (error) {
       console.log(error);
       setErrorMessage(error.message);
     }
-    history.push("/");
   };
 
   const onGoogleLoginClick = (event) => {

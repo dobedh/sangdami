@@ -5,7 +5,6 @@ import { useHistory } from "react-router";
 
 const Community = ({ userObj }) => {
   const [posts, setPosts] = useState([]);
-  const [createdDate, setCreatedDate] = useState(null);
 
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
@@ -34,7 +33,7 @@ const Community = ({ userObj }) => {
                 dates: post.createdAt,
                 text: post.text,
                 nickname: post.creatorNickname,
-                isOwner: post.creatorId === userObj.uid,
+                isOwner: userObj ? post.creatorId === userObj.uid : false,
                 postId: post.postId,
               },
             }}

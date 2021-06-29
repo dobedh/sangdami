@@ -55,8 +55,8 @@ const AuthLogin = () => {
         />
         <input type="submit" value="로그인" />
       </form>
-      <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
-      <button onClick={onGoogleLoginClick}>구글 로그인</button>
+      {/* <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
+      <button onClick={onGoogleLoginClick}>구글 로그인</button> */}
       {errorMessage ? <div>{errorMessage} </div> : <div></div>}
     </div>
   );

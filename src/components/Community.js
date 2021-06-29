@@ -17,7 +17,14 @@ const Community = ({ userObj }) => {
   }, []);
   const history = useHistory();
   const onWriteClick = () => {
-    history.push("/post");
+    if (userObj) {
+      history.push("/post");
+    } else {
+      const ok = window.confirm("로그인해야지 빵구똥꾸!");
+      if (ok) {
+        history.push("/login");
+      }
+    }
   };
   return (
     <>

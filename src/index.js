@@ -5,7 +5,6 @@ import App from "./components/App";
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <div>바보애ㅑㄴ</div>
   </React.StrictMode>,
   document.getElementById("root")
 );

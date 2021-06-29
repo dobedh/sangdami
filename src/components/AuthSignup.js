@@ -70,8 +70,8 @@ const AuthSignup = () => {
         />
         <input type="submit" value="회원가입" />
       </form>
-      <button onClick={onFacebookLoginClick}>페이스북으로 시작하기</button>
-      <button onClick={onGoogleLoginClick}>구글로 시작하기</button>
+      {/* <button onClick={onFacebookLoginClick}>페이스북으로 시작하기</button>
+      <button onClick={onGoogleLoginClick}>구글로 시작하기</button> */}
       {errorMsg ? <div>{errorMsg}</div> : <></>}
     </div>
   );

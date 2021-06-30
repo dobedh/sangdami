@@ -18,19 +18,7 @@ function App() {
   }, []);
   return (
     <>
-      {init ? (
-        <>
-          <header>
-            <title>헤헿</title>
-          </header>
-          <h3 class="logo">
-            <a href="/">상다미 :) </a>
-          </h3>
-          <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
-        </>
-      ) : (
-        "is logging..."
-      )}
+      <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
     </>
   );
 }

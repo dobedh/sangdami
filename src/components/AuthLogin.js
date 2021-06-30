@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { authService } from "../fbase";
 
 const AuthLogin = () => {
@@ -38,23 +38,34 @@ const AuthLogin = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type="eamil"
-          name="email"
-          placeholder="Eamil"
-          onChange={onChange}
-          value={email}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={onChange}
-          value={password}
-        />
-        <input type="submit" value="로그인" />
+      <form onSubmit={onSubmit} class="login_form">
+        <div>
+          <input
+            type="eamil"
+            name="email"
+            placeholder="Eamil"
+            onChange={onChange}
+            value={email}
+            class="login_input"
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={onChange}
+            value={password}
+            class="login_input"
+          />
+        </div>
+        <input type="submit" value="로그인" class="login_btn" />
       </form>
+      <div>
+        <Link to="/signup" class="link">
+          <button>상다미 회원 가입하기</button>
+        </Link>
+      </div>
       {/* <button onClick={onFacebookLoginClick}>페이스북 로그인</button>
       <button onClick={onGoogleLoginClick}>구글 로그인</button> */}
       {errorMessage ? <div>{errorMessage} </div> : <div></div>}

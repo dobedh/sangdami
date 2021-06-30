@@ -3,27 +3,37 @@ import { Link } from "react-router-dom";
 
 const Navigation = ({ isLoggedIn }) => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/community">자유게시판</Link>
-        </li>
-        {isLoggedIn ? (
+    <header>
+      <h3 class="logo">
+        <a href="/" class="logo-link">
+          상다미🙂
+        </a>
+      </h3>
+      <nav>
+        <ul>
           <li>
-            <Link to="/profile">프로필</Link>
+            <Link to="/community" class="link">
+              자유게시판
+            </Link>
           </li>
-        ) : (
-          <>
+          {isLoggedIn ? (
             <li>
-              <Link to="/login">로그인</Link>
+              <Link to="/profile" class="link">
+                프로필
+              </Link>
             </li>
-            <li>
-              <Link to="/signup">회원가입</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+          ) : (
+            <>
+              <li>
+                <Link to="/login" class="link">
+                  로그인
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+    </header>
   );
 };
 

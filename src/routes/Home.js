@@ -1,11 +1,7 @@
 import React from "react";
 
 const Home = ({ userObj }) => {
-  return (
-    <div>
-      <h4> 홈 </h4>
-    </div>
-  );
+  return <h4> 홈 </h4>;
 };
 
 export default Home;

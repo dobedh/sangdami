@@ -7,13 +7,16 @@ const Community = ({ userObj }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      const postArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setPosts(postArray);
-    });
+    db.collection("posts")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const postArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPosts(postArray);
+        console.log(postArray);
+      });
   }, []);
   const history = useHistory();
   const onWriteClick = () => {
@@ -28,7 +31,9 @@ const Community = ({ userObj }) => {
   };
   return (
     <>
-      <div>Community!</div>
+      <button onClick={onWriteClick} class="write-btn">
+        글쓰기
+      </button>
       {posts.map((post) => (
         <div key={post.id}>
           <Link
@@ -44,14 +49,15 @@ const Community = ({ userObj }) => {
                 postId: post.postId,
               },
             }}
+            class="link-posts"
           >
-            {post.title}
+            <div class="post-container">
+              <div class="post-title">{post.title}</div>
+              <div class="post-date">{post.createdAt}</div>
+            </div>
           </Link>
-          <h6>{post.createdAt}</h6>
-          <h6>{post.creatorNickname}</h6>
         </div>
       ))}
-      <button onClick={onWriteClick}>글쓰기</button>
     </>
   );
 };

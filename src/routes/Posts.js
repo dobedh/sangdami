@@ -11,6 +11,14 @@ const Posts = ({ userObj }) => {
   // community 페이지로 갔다가, 다시 post 페이지로 오면서 useState로 인하여 postId값이 1로 초기화됨
   const history = useHistory();
 
+  function getToday() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    return year + "." + month + "." + day;
+  }
+
   useEffect(() => {
     db.collection("postNumber").onSnapshot((snapshot) => {
       const postNumberArray = snapshot.docs.map((doc) => ({
@@ -28,7 +36,7 @@ const Posts = ({ userObj }) => {
     const postObj = {
       title: postTitle,
       text: newPost,
-      createdAt: Date.now(),
+      createdAt: getToday(),
       creatorId: userObj.uid,
       creatorNickname: userObj.displayName,
       postId: postId.length,

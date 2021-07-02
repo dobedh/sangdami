@@ -62,18 +62,24 @@ const Posts = ({ userObj }) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div>
-          <input placeholder="제목" onChange={onChangeTitle} required></input>
+        <div class="post-title-container">
+          <input
+            placeholder="제목"
+            onChange={onChangeTitle}
+            class="post-title-input"
+            required
+          ></input>
         </div>
-        <div>
+        <div class="post-content-container">
           <textarea
             placeholder="상다미의 이야기"
             onChange={onChange}
+            class="post-content"
             required
           ></textarea>
         </div>
-        <div>
-          <input type="submit" value="작성완료" />
+        <div class="post-submit">
+          <input type="submit" value="작성완료" class="post-submit-btn" />
         </div>
       </form>
     </div>

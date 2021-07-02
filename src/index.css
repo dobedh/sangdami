@@ -6,7 +6,7 @@ header {
   left: 0;
   padding: 0px 35px;
   background-color: white;
-  height: 50px;
+  height: 57px;
   display: flex;
   align-items: center;
   border-bottom: solid 0.3px rgb(221, 218, 218);
@@ -74,6 +74,62 @@ a {
 .post-container {
   margin-bottom: 20px;
   color: black;
+}
+
+.post-title-container {
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.post-title-input {
+  width: 80%;
+  height: 3vh;
+}
+
+.post-content-container {
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.post-content {
+  width: 80%;
+  height: 20vh;
+}
+
+.post-submit {
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.post-submit-btn {
+  --button-color: #ffffff;
+  --button-bg-color: rgba(240, 188, 77, 0.815);
+  --button-hover-bg-color: #025ce2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg-color);
+  color: var(--button-color);
+  margin-bottom: 20px;
+  padding: 0.5rem 1rem;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  width: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  cursor: pointer;
+
+  transition: 0.5s;
 }
 
 .write-btn {

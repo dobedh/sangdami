@@ -37,8 +37,8 @@ const AuthLogin = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit} class="login_form">
+    <div class="login_fomr">
+      <form onSubmit={onSubmit}>
         <div>
           <input
             type="eamil"
@@ -59,11 +59,13 @@ const AuthLogin = () => {
             class="login_input"
           />
         </div>
-        <input type="submit" value="로그인" class="login_btn" />
+        <div>
+          <input type="submit" value="로그인" class="login_btn" />
+        </div>
       </form>
       <div>
-        <Link to="/signup" class="link">
-          <button>상다미 회원 가입하기</button>
+        <Link to="/signup">
+          <button class="login_to_signup">회원 가입</button>
         </Link>
       </div>
       {/* <button onClick={onFacebookLoginClick}>페이스북 로그인</button>

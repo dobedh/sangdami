@@ -59,8 +59,12 @@ const Profile = ({ userObj }) => {
         <>
           <div>{userObj.email}</div>
           <div>{userObj.displayName}</div>
-          <button onClick={onLogOutClick}>로그아웃</button>
-          <button onClick={onEditClick}>프로필 수정</button>
+          <button onClick={onLogOutClick} class="logout-btn">
+            로그아웃
+          </button>
+          <button onClick={onEditClick} class="profile-edit-btn">
+            프로필 수정
+          </button>
         </>
       )}
     </div>
